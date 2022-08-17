@@ -11,6 +11,7 @@ function Table() {
     keys,
     filters: {
       filterName,
+      filterByNumericValues,
     },
   } = useContext(StarContext);
 
@@ -22,7 +23,17 @@ function Table() {
   }, []);
 
   const filtersInputs = response
-    .filter((plt) => plt.name.toLowerCase().includes(filterName.toLowerCase()));
+    .filter((plt) => plt.name.toLowerCase().includes(filterName.toLowerCase()))
+    .filter((plt) => filterByNumericValues
+      .every(({ column, comparison, value }) => {
+        if (comparison === 'maior que') {
+          return Number(plt[column]) > value;
+        }
+        if (comparison === 'menor que') {
+          return Number(plt[column]) < value;
+        }
+        return +plt[column] === +value;
+      }));
 
   return (
     <div>
