@@ -27,12 +27,12 @@ function Table() {
     .filter((plt) => filterByNumericValues
       .every(({ column, comparison, value }) => {
         if (comparison === 'maior que') {
-          return Number(plt[column]) > value;
+          return Number(plt[column]) > +value;
         }
         if (comparison === 'menor que') {
           return Number(plt[column]) < value;
         }
-        return +plt[column] === +value;
+        return +plt[column] === value;
       }));
 
   return (

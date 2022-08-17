@@ -9,11 +9,26 @@ function Filters() {
     setNumericValues,
   } = useContext(StarContext);
 
+  const categories = ['population', 'orbital_period',
+    'diameter', 'rotation_period', 'surface_water'];
+
   const [state, setState] = useState({
     column: 'population',
     comparison: 'maior que',
     value: 0,
   });
+
+  const usedCatg = filterByNumericValues.map(({ column }) => column);
+
+  const handleClick = () => {
+    setState({
+      column: categories.filter((category) => !usedCatg.includes(category))[0],
+      comparison: 'maior que',
+      value: 0,
+    });
+    setNumericValues([...filterByNumericValues, state]);
+  };
+
   const { column, comparison, value } = state;
   return (
     <div>
@@ -23,11 +38,10 @@ function Filters() {
         value={ column }
         onChange={ ({ target }) => setState({ ...state, column: target.value }) }
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+
+        { categories.filter((category) => !usedCatg.includes(category))
+          .map((category) => <option key={ category }>{ category }</option>) }
+
       </select>
 
       Comparison
@@ -51,7 +65,7 @@ function Filters() {
       <button
         type="button"
         data-testid="button-filter"
-        onClick={ () => setNumericValues([...filterByNumericValues, state]) }
+        onClick={ handleClick }
       >
         FILTRAR
       </button>
