@@ -8,6 +8,7 @@ function StarProvider(props) {
   const [erroApi, setErroApi] = useState('');
   const [load, setLoad] = useState(false);
   const [keys, setKeys] = useState([]);
+  const [filterName, setFilterName] = useState('');
 
   const requestPlanets = async () => {
     setLoad(true);
@@ -31,6 +32,10 @@ function StarProvider(props) {
     erroApi,
     load,
     keys,
+    filters: {
+      filterName,
+    },
+    setFilterName,
   };
   return (
     <StarContext.Provider value={ objVal }>

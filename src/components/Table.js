@@ -9,6 +9,9 @@ function Table() {
     response,
     load,
     keys,
+    filters: {
+      filterName,
+    },
   } = useContext(StarContext);
 
   useEffect(() => {
@@ -17,6 +20,9 @@ function Table() {
     };
     return getPlan();
   }, []);
+
+  const filtersInputs = response
+    .filter((plt) => plt.name.toLowerCase().includes(filterName.toLowerCase()));
 
   return (
     <div>
@@ -32,7 +38,7 @@ function Table() {
             </thead>
 
             <tbody>
-              {response.map((plt) => (
+              {filtersInputs.map((plt) => (
                 <tr key={ plt }>
                   {
                     keys.map((elm) => (
