@@ -33,7 +33,6 @@ function StarProvider(props) {
     erroApi,
     load,
     keys,
-
     filters: {
       filterName,
       filterByNumericValues,

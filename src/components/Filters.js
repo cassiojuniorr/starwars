@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import StarContext from '../context/StarContext';
 
 function Filters() {
@@ -18,20 +18,21 @@ function Filters() {
     value: 0,
   });
 
-  const usedCatg = filterByNumericValues.map(({ column }) => column);
+  const usedCatg = categories.filter(
+    (clm) => !filterByNumericValues.some((elm) => clm === elm.column),
+  );
 
   const handleClick = () => {
-    setState({
-      column: categories.filter((category) => !usedCatg.includes(category))[0],
-      comparison: 'maior que',
-      value: 0,
-    });
     setNumericValues([...filterByNumericValues, state]);
   };
 
+  useEffect(() => {
+    setState((prevState) => ({ ...prevState, column: usedCatg[0] }));
+  }, [filterByNumericValues]);
+
   const { column, comparison, value } = state;
   return (
-    <div>
+    <form>
       Coluna
       <select
         data-testid="column-filter"
@@ -39,8 +40,9 @@ function Filters() {
         onChange={ ({ target }) => setState({ ...state, column: target.value }) }
       >
 
-        { categories.filter((category) => !usedCatg.includes(category))
-          .map((category) => <option key={ category }>{ category }</option>) }
+        { usedCatg.map((clm) => (
+          <option key={ clm } value={ clm }>{clm}</option>
+        )) }
 
       </select>
 
@@ -69,7 +71,7 @@ function Filters() {
       >
         FILTRAR
       </button>
-    </div>
+    </form>
   );
 }
 

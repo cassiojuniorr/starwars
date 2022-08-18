@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import StarContext from '../context/StarContext';
 import Load from './Load';
+import FilterList from './FilterList';
 
 function Table() {
   const {
@@ -32,34 +33,37 @@ function Table() {
         if (comparison === 'menor que') {
           return Number(plt[column]) < value;
         }
-        return +plt[column] === value;
+        return +plt[column] === +value;
       }));
 
   return (
     <div>
       { (load) ? <Load />
         : (
-          <table>
-            <thead>
-              <tr>
-                {keys.map((elm) => (
-                  <th key={ elm }>{elm}</th>
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-              {filtersInputs.map((plt) => (
-                <tr key={ plt }>
-                  {
-                    keys.map((elm) => (
-                      <td key={ elm }>{plt[elm]}</td>
-                    ))
-                  }
+          <>
+            <FilterList />
+            <table>
+              <thead>
+                <tr>
+                  {keys.map((elm) => (
+                    <th key={ elm }>{elm}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody>
+                {filtersInputs.map((plt) => (
+                  <tr key={ plt }>
+                    {
+                      keys.map((elm) => (
+                        <td key={ elm }>{plt[elm]}</td>
+                      ))
+                    }
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
         )}
     </div>
   );
