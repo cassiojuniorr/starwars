@@ -1,0 +1,45 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.containerName {
+    @include center;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 44px;
+    color: $primary-color;
+}
+
+.containerTitileProject {
+    margin-bottom: 14px;
+    .titileProject {
+        color: $text-color;
+        font-size: 28px;
+    }
+}
+
+.containerInputName {
+    margin-bottom: 14px;
+    border: 1px solid rgb(128, 128, 128);
+    .nameFilter {
+        font-family: inherit;
+        letter-spacing: inherit;
+        color: currentcolor;
+        border: 0px;
+        box-sizing: content-box;
+        background: none;
+        height: 1.4375em;
+        margin: 0px;
+        display: block;
+        width: 100%;
+        padding: 16.5px 14px;
+        min-width: 0px;
+        -webkit-tap-highlight-color: transparent;
+        animation-name: mui-auto-fill-cancel;
+        animation-duration: 10ms;
+    } :hover {
+        border: 1px solid $primary-color;
+    } :active {
+        border: 1px solid $text-color;
+    }
+ 
+}

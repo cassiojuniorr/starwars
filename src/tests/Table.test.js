@@ -60,7 +60,8 @@ describe('Test component Table' , () => {
     const filtValue = screen.getByTestId('value-filter');
     const btnFilter = screen.getByTestId('button-filter');
     const btnRemoveAll = screen.getByTestId('button-remove-filters');
-    
+
+    // peguei o match selectOptions nesse site https://github.com/testing-library/user-event/issues/203
     userEvent.selectOptions(filtColumn, ['population']);
     userEvent.selectOptions(filtComparison, ['menor que']);
     userEvent.type(filtValue, 20000);

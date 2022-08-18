@@ -1,0 +1,76 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.page {
+    background-color: $brackGround;
+    padding: 50px;
+}
+
+.containerComponents {
+    background-color: $colorBody;
+    color: $primary-color;
+    padding: 26px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+}
+
+.containerTable {
+    color: $primary-color;
+    @include center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    overflow-x: auto;
+}
+
+.theader {
+    width: 100%;
+    .titleContainer {
+        background-color: rgb(14, 14, 14);
+        @include center;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        border-radius: 4px;
+        padding: 26px 20px;
+        border-bottom: 1px solid rgb(128, 128, 128);
+        .title {
+            font-size: 20px;
+            @include center;
+            flex-flow: column wrap;
+            justify-content: center;
+            width: 40px;
+        }
+    }
+}
+
+
+
+
+.tbodyC {
+    width: 100%;
+    .containerPlanets {
+        @include center;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding: 12px;
+        border-bottom: 1px solid rgb(128, 128, 128);
+        .planets {
+            @include center;
+            font-size: 14px;
+            flex-flow: row wrap;
+            justify-content: center;
+            width: 80px;
+        }
+    }
+}
+
+

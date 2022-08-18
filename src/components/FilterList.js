@@ -17,7 +17,7 @@ function FilterList() {
   };
 
   return (
-    <div>
+    <div className="containerListFilter">
       Filters:
       {filterByNumericValues.map((filt) => (
         <div key={ filt.column } data-testid="filter">

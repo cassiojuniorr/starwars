@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import StarContext from '../context/StarContext';
 import Load from './Load';
-import FilterList from './FilterList';
+import style from '../styles/table.module.scss';
 
 function Table() {
   const {
@@ -36,34 +35,46 @@ function Table() {
         return +plt[column] === +value;
       }));
 
+  const {
+    containerTable,
+    theader,
+    titleContainer,
+    title,
+    tbodyC,
+    containerPlanets,
+    planets,
+  } = style;
+
   return (
     <div>
       { (load) ? <Load />
         : (
-          <>
-            <FilterList />
-            <table>
-              <thead>
-                <tr>
-                  {keys.map((elm) => (
-                    <th key={ elm }>{elm}</th>
-                  ))}
-                </tr>
-              </thead>
+          <table className={ containerTable }>
 
-              <tbody>
-                {filtersInputs.map((plt) => (
-                  <tr key={ plt }>
+            <thead className={ theader }>
+              <tr className={ titleContainer }>
+                {keys.map((elm) => (
+                  <th className={ title } key={ elm }>
                     {
-                      keys.map((elm) => (
-                        <td key={ elm }>{plt[elm]}</td>
-                      ))
+                      elm.replace('_', ' ')
                     }
-                  </tr>
+                  </th>
                 ))}
-              </tbody>
-            </table>
-          </>
+              </tr>
+            </thead>
+
+            <tbody className={ tbodyC }>
+              {filtersInputs.map((plt) => (
+                <tr key={ plt } className={ containerPlanets }>
+                  {
+                    keys.map((elm) => (
+                      <td key={ elm } className={ planets }>{plt[elm]}</td>
+                    ))
+                  }
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
     </div>
   );
