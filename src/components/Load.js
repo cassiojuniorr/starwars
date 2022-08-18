@@ -2,7 +2,7 @@ import React from 'react';
 
 function Load() {
   return (
-    <div>..Loading</div>
+    <div>...Loading</div>
   );
 }
 
