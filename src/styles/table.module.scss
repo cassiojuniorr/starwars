@@ -33,42 +33,44 @@ body {
 
 .theader {
     width: 100%;
+    margin-top: 14px;
     .titleContainer {
-        background-color: rgb(14, 14, 14);
         @include center;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: space-between;
+        background-color: rgb(14, 14, 14);
         border-radius: 4px;
         padding: 26px 20px;
+        width: 2200px;
         border-bottom: 1px solid rgb(128, 128, 128);
         .title {
-            font-size: 20px;
             @include center;
-            flex-flow: column wrap;
+            flex-flow: row nowrap;
             justify-content: center;
-            width: 40px;
+            font-size: 20px;
+            margin-right: 100px;
         }
     }
 }
-
-
-
 
 .tbodyC {
     width: 100%;
     .containerPlanets {
         @include center;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: space-between;
-        width: 100%;
-        padding: 12px;
+        padding: 26px 20px;
+        width: 2200px;
         border-bottom: 1px solid rgb(128, 128, 128);
+        overflow: hidden;
         .planets {
             @include center;
-            font-size: 14px;
             flex-flow: row wrap;
+            overflow: hidden;
             justify-content: center;
-            width: 80px;
+            font-size: 14px;
+            width: 10%;
+            margin-right: 60px;
         }
     }
 }

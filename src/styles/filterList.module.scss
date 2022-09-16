@@ -1,0 +1,25 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.containerListFilter {
+    margin-top: 20px;
+    font-size: 24px;
+   .containerElm {
+       @include center;
+        flex-flow: row nowrap;
+        .btnX {
+            color: red;
+            margin-left: 8px;
+            border: 1px solid red;
+            border-radius: 6px;
+            background: none;
+        }
+    }
+    .btnRemoveFilter {
+        background: none;
+        color: $text-color;
+        font-weight: 600;
+        padding: 10px;
+        border: 1px solid $text-color;
+    }
+}
