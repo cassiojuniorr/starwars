@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import StarContext from '../context/StarContext';
+import style from '../styles/filters.module.scss';
 
 function Filters() {
   const {
@@ -31,35 +32,43 @@ function Filters() {
   }, [filterByNumericValues]);
 
   const { column, comparison, value } = state;
+  const { containerFilters, selectFilter, inputFilter, filterBtn } = style;
   return (
-    <form>
-      Coluna
-      <select
-        data-testid="column-filter"
-        value={ column }
-        onChange={ ({ target }) => setState({ ...state, column: target.value }) }
-      >
+    <form className={ containerFilters }>
+      <div>
+        Coluna
+        <select
+          data-testid="column-filter"
+          className={ selectFilter }
+          value={ column }
+          onChange={ ({ target }) => setState({ ...state, column: target.value }) }
+        >
 
-        { usedCatg.map((clm) => (
-          <option key={ clm } value={ clm }>{clm}</option>
-        )) }
+          { usedCatg.map((clm) => (
+            <option key={ clm } value={ clm }>{clm}</option>
+          )) }
 
-      </select>
+        </select>
+      </div>
 
-      Comparison
-      <select
-        data-testid="comparison-filter"
-        value={ comparison }
-        onChange={ ({ target }) => setState({ ...state, comparison: target.value }) }
-      >
-        <option value="maior que">maior que</option>
-        <option value="menor que">menor que</option>
-        <option value="igual a">igual a</option>
-      </select>
+      <div>
+        Comparison
+        <select
+          data-testid="comparison-filter"
+          className={ selectFilter }
+          value={ comparison }
+          onChange={ ({ target }) => setState({ ...state, comparison: target.value }) }
+        >
+          <option value="maior que">maior que</option>
+          <option value="menor que">menor que</option>
+          <option value="igual a">igual a</option>
+        </select>
+      </div>
 
       <input
         type="number"
         data-testid="value-filter"
+        className={ inputFilter }
         value={ value }
         onChange={ ({ target }) => setState({ ...state, value: target.value }) }
       />
@@ -67,6 +76,7 @@ function Filters() {
       <button
         type="button"
         data-testid="button-filter"
+        className={ filterBtn }
         onClick={ handleClick }
       >
         FILTRAR

@@ -1,0 +1,25 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.containerFilters {
+    @include center;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    .selectFilter {
+        border-radius: 6px;
+        margin-left: 6px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .inputFilter {
+        padding: 8px;
+        text-align: center;
+    }:active {
+        background-color: rgb(207, 207, 207);
+    }
+
+    .filterBtn {
+        padding: 10px;
+    }
+}
