@@ -1,5 +1,5 @@
-# StarWars Planets
-Nesse projeto desenvolvemos uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais.
+# StarWars
+Nesse projeto desenvolvi uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais.
 
 Segue link deploy do modelo do projeto: 
 <a href="https://cassiojuniorr.github.io/starwars/" target="blank">Link!</a>
@@ -10,9 +10,9 @@ Segue link deploy do modelo do projeto:
 <details>
 <summary><strong>Todas tecnologias que foram utilizadas</strong></summary><br />
 
-- React (com Eedux and React Router) <img height="20px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+- React (com Redux and React Router) <img height="10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
 
-- Node <img height="20px" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg">
+- Node <img height="10px" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg">
     
 </details>
 
