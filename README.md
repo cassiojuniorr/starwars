@@ -10,11 +10,9 @@ Segue link deploy do modelo do projeto:
 <details>
 <summary><strong>Todas tecnologias que foram utilizadas</strong></summary><br />
 
-- React (com Eedux and React Router)
-<img height="20px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+- React (com Eedux and React Router) <img height="20px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
 
-- Node
-<img height="20px" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg">
+- Node <img height="20px" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg">
     
 </details>
 
